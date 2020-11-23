@@ -1,38 +1,36 @@
-﻿using System;
-
-namespace ConfigMgr.Domain
+﻿namespace ConfigMgr.Domain
 {
     /// <summary>
-    /// A Configuration item is the lowest level
+    /// A Configuration value is the lowest level
     /// node in the configuration heirarchy.
     /// </summary>
-    public interface IConfigurationItem
+    public abstract class ConfigurationValue
     {
         /// <summary>
-        /// Gets the raw data associated with the configuration item.
+        /// Gets the raw data associated with the configuration value.
         /// </summary>
         /// <returns></returns>
-        object GetRawData();
+        public object RawData { get; private set; }
 
         /// <summary>
-        /// Deserializes the given configuration item as <see cref="IConfigurationItem<TData>" />.
+        /// Deserializes the given configuration item as <see cref="ConfigurationValue<TData>" />.
         /// </summary>
         /// <typeparam name="TData"></typeparam>
         /// <returns></returns>
-        IConfigurationItem<TData> As<TData>();
+        public abstract ConfigurationValue<TData> As<TData>();
     }
 
     /// <summary>
-    /// A Configuration item is the lowest level
+    /// A Configuration value is the lowest level
     /// node in the configuration heirarchy.
     /// </summary>
     /// <typeparam name="TData">Type of data attached to the configuration item.</typeparam>
-    public interface IConfigurationItem<TData> : IConfigurationItem
+    public abstract class ConfigurationValue<TData> : ConfigurationValue
     {
         /// <summary>
         /// Gets the data deserialized into the expected format.
         /// </summary>
         /// <returns></returns>
-        TData GetData();
+        public TData Data { get; private set; }
     }
 }
