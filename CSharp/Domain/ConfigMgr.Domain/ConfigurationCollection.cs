@@ -16,34 +16,34 @@ namespace ConfigMgr.Domain
         /// <param name="sourceCollection"></param>
         internal ConfigurationCollection(ICollection<ConfigurationValue> sourceCollection)
         {
-            _sourceCollection = sourceCollection ?? throw new System.ArgumentNullException(nameof(sourceCollection));
+            _sourceCollection = sourceCollection;
         }
 
         /// <inheritdoc />
-        public int Count => _sourceCollection.Count;
+        public int Count => _sourceCollection?.Count ?? 0;
 
         /// <inheritdoc />
-        public bool IsReadOnly => _sourceCollection.IsReadOnly;
+        public bool IsReadOnly => _sourceCollection?.IsReadOnly ?? false;
 
         /// <inheritdoc />
-        public void Add(ConfigurationValue item) => _sourceCollection.Add(item);
+        public void Add(ConfigurationValue item) => _sourceCollection?.Add(item);
 
         /// <inheritdoc />
-        public void Clear() => _sourceCollection.Clear();
+        public void Clear() => _sourceCollection?.Clear();
 
         /// <inheritdoc />
-        public bool Contains(ConfigurationValue item) => _sourceCollection.Contains(item);
+        public bool Contains(ConfigurationValue item) => _sourceCollection?.Contains(item) ?? false;
 
         /// <inheritdoc />
-        public void CopyTo(ConfigurationValue[] array, int arrayIndex) => _sourceCollection.CopyTo(array, arrayIndex);
+        public void CopyTo(ConfigurationValue[] array, int arrayIndex) => _sourceCollection?.CopyTo(array, arrayIndex);
 
         /// <inheritdoc />
-        public bool Remove(ConfigurationValue item) => _sourceCollection.Remove(item);
+        public bool Remove(ConfigurationValue item) => _sourceCollection?.Remove(item) ?? false;
 
         /// <inheritdoc />
-        public IEnumerator<ConfigurationValue> GetEnumerator() => _sourceCollection.GetEnumerator();
+        public IEnumerator<ConfigurationValue> GetEnumerator() => _sourceCollection?.GetEnumerator();
 
         /// <inheritdoc />
-        IEnumerator IEnumerable.GetEnumerator() => _sourceCollection.GetEnumerator();
+        IEnumerator IEnumerable.GetEnumerator() => _sourceCollection?.GetEnumerator();
     }
 }

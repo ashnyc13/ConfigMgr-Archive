@@ -18,6 +18,16 @@
         /// <typeparam name="TData"></typeparam>
         /// <returns></returns>
         public abstract ConfigurationValue<TData> As<TData>();
+
+        /// <summary>
+        /// Deserializes the given configuration item into the provided <see paramref="output">
+        /// object's field or property targeted by the <see paramref="memberName" />.
+        /// If no member name is provided, populates the output object with data.
+        /// </summary>
+        /// <param name="output"></param>
+        /// <param name="memberName"></param>
+        /// <typeparam name="TData"></typeparam>
+        public abstract void Bind<TData>(TData output, string memberName);
     }
 
     /// <summary>
