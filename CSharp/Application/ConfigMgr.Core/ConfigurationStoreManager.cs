@@ -43,7 +43,7 @@ namespace ConfigMgr.Core
         }
 
         /// <inheritdoc />
-        public string Read(string nativeQuery)
+        public object Read(string nativeQuery)
         {
             // Go through the stores from last to first
             // and look for the data requested

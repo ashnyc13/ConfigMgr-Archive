@@ -11,7 +11,7 @@ namespace ConfigMgr.Core.Interfaces
         /// </summary>
         /// <param name="nativeQuery">A query in the format native to the configuration store.</param>
         /// <returns></returns>
-        string Read(string nativeQuery);
+        object Read(string nativeQuery);
 
         /// <summary>
         /// Uri of the source in its native format.

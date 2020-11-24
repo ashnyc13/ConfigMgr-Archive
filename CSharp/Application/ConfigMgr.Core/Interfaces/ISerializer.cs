@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ConfigMgr.Core
+namespace ConfigMgr.Core.Interfaces
 {
     /// <summary>
     /// Serialization and deserialization support for configuration data.
