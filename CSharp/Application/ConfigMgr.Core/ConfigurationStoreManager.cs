@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using ConfigMgr.Core.Interfaces;
+using ConfigMgr.Domain;
 
 namespace ConfigMgr.Core
 {
@@ -43,13 +44,13 @@ namespace ConfigMgr.Core
         }
 
         /// <inheritdoc />
-        public object Read(string nativeQuery)
+        public object Read(ConfigurationQuery query)
         {
             // Go through the stores from last to first
             // and look for the data requested
             for (var i = _stores.Count - 1; i >= 0; i--)
             {
-                var result = _stores[i].Read(nativeQuery);
+                var result = _stores[i].Read(query);
                 if (result != null) return result;
             }
 

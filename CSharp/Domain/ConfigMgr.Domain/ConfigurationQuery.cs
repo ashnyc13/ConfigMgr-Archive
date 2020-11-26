@@ -10,21 +10,21 @@ namespace ConfigMgr.Domain
         /// Creates a new instance of <see cref="ConfigurationQuery" /> based
         /// on the given string representation.
         /// </summary>
-        /// <param name="query"></param>
-        protected ConfigurationQuery(string query)
+        /// <param name="value"></param>
+        protected ConfigurationQuery(string value)
         {
-            if (string.IsNullOrEmpty(query))
+            if (string.IsNullOrEmpty(value))
             {
-                throw new System.ArgumentException($"'{nameof(query)}' cannot be null or empty", nameof(query));
+                throw new System.ArgumentException($"'{nameof(value)}' cannot be null or empty", nameof(value));
             }
 
-            Query = query;
+            Value = value;
         }
 
         /// <summary>
         /// String representation of the query instance.
         /// </summary>
         /// <value></value>
-        public string Query { get; }
+        public string Value { get; }
     }
 }
