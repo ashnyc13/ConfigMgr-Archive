@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ConfigMgr.Domain
 {
@@ -10,9 +11,9 @@ namespace ConfigMgr.Domain
     {
         private readonly IDictionary<string, ConfigurationValue> _sourceDictionary;
 
-        public ConfigurationMap(IDictionary<string, ConfigurationValue> sourceDictionary)
+        public ConfigurationMap(IEnumerable<KeyValuePair<string, ConfigurationValue>> sourceDictionary)
         {
-            _sourceDictionary = sourceDictionary;
+            _sourceDictionary = sourceDictionary.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
         }
 
         public ConfigurationValue this[string key]

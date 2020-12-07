@@ -1,9 +1,12 @@
+using System.Diagnostics;
+
 namespace ConfigMgr.Domain
 {
     /// <summary>
     /// Represents query that could return a <see cref="ConfigurationMap" />,
     /// <see cref="ConfigurationCollection" />, or a <see cref="ConfigurationValue" />.
     /// </summary>
+    [DebuggerDisplay("{" + nameof(ToString) + "(),nq}")]
     public abstract class ConfigurationQuery
     {
         /// <summary>
@@ -26,5 +29,11 @@ namespace ConfigMgr.Domain
         /// </summary>
         /// <value></value>
         public string Value { get; }
+
+        /// <inheritdoc />
+        public override string ToString()
+        {
+            return Value;
+        }
     }
 }

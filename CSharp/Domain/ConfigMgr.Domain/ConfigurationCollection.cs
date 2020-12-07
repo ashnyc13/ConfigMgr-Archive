@@ -14,7 +14,7 @@ namespace ConfigMgr.Domain
         /// Creates a new instance of <see cref="ConfigurationCollection" />
         /// </summary>
         /// <param name="sourceCollection"></param>
-        internal ConfigurationCollection(ICollection<ConfigurationValue> sourceCollection)
+        protected ConfigurationCollection(ICollection<ConfigurationValue> sourceCollection)
         {
             _sourceCollection = sourceCollection;
         }

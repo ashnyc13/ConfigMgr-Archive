@@ -10,7 +10,7 @@ namespace ConfigMgr.Core.Json
     /// <summary>
     /// Represents a Json file based configuration store.
     /// </summary>
-    public class JsonFileStore : IConfigurationStore, IDisposable
+    public class JsonFileStore : IConfigurationStore<JToken>, IDisposable
     {
         private bool disposedValue;
         private JsonReader _jsonReader;
@@ -41,7 +41,7 @@ namespace ConfigMgr.Core.Json
         public string Uri { get; private set; }
 
         /// <inheritdoc />
-        public object Read(ConfigurationQuery query)
+        public JToken Read(ConfigurationQuery query)
         {
             // Parse out the query
             var queryValue = query.Value;
